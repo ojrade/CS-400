@@ -1,0 +1,49 @@
+
+
+1) What can you tell about the performance of your hash table implementation compared to Java's tree map? 
+Explain why (or when)
+your hash table is better or worse than Java's Tree Map.
+
+
+
+From the JMC we can tell that in both cases of the insert and retrieve methods, my own hash table implementation requires
+a smaller CPU usage than Java's TreeMap class.
+
+2) What did you observe in java mission control to come to the conclusion above?
+
+
+
+
+In the JMC I looked at both the Hot classes and the Hot Methods, and saw in both cases that my HashTable class methods 
+had a significantly lower CPU persentage than did those of the Treemap class. SCREENSHOT_001.PNG contains a picture of 
+the Hot packages and Hot classes. From this alone we can see that java.util makes up for 74% of CPU usage. We can 
+also see that of the hot classes, TreeMap accounts for 71% of CPU usage, which accounts for the high java.util package usage. 
+SCREENSHOT_002.PNG contains a picture of the hot methods individually. TreeMap.put has a CPU usage of 63% and
+HashTable.insert has a CPU usage of 10%. Treemap.get also has a higher usage than HashTable.get at 8.63%
+compared to 0.21%. 
+
+3) SCREENSHOT_001.PNG NOTES: Briefly describe what this image 001 shows
+
+
+
+
+Shows hot packages and classes
+HOT PACKAGES
+java.util:74%
+
+HOT CLASSES
+java.util.TreeMap:71%
+HashTable:11.26%
+
+4) SCREENSHOT_002.PNG NOTES: Briefly describe what this image 002 shows
+
+
+ that TreeMap 
+
+Shows hot methods
+HOT METHODS
+TreeMap.put:63%
+HashTable.insert:10%
+
+TreeMap.get:8.63%
+HashTable.get:0.21%
